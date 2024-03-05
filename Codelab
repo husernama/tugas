@@ -1,0 +1,24 @@
+// Main.java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the student's name: ");
+        String nama = scanner.nextLine();
+
+        System.out.print("Enter the student's NIM: ");
+        String nim = scanner.nextLine();
+
+        // Create a new student object
+        Mahasiswa mahasiswa = new Mahasiswa(nama, nim);
+
+        // Display the input student data
+        System.out.println("\nStudent Data:");
+        System.out.println("Name: " + mahasiswa.getNama());
+        System.out.println("NIM: " + mahasiswa.getNim());
+
+        scanner.close();
+    }
+}
