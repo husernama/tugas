@@ -1,15 +1,13 @@
 public class Mahasiswa {
     private String nama;
     private String nim;
-    private String universitas;
+    private String jurusan;
 
-
-    public Mahasiswa(String nama, String nim, String universitas) {
+    public Mahasiswa(String nama, String nim, String jurusan) {
         this.nama = nama;
         this.nim = nim;
-        this.universitas = universitas;
+        this.jurusan = jurusan;
     }
-
 
     public String getNama() {
         return nama;
@@ -27,17 +25,15 @@ public class Mahasiswa {
         this.nim = nim;
     }
 
-    public String getUniversitas() {
-        return universitas;
+    public String getJurusan() {
+        return jurusan;
     }
 
-    public void setUniversitas(String universitas) {
-        this.universitas = universitas;
+    public void setJurusan(String jurusan) {
+        this.jurusan = jurusan;
     }
-
 
     public static void tampilUniversitas() {
-        System.out.println("Universitas: Universitas XYZ");
+        System.out.println("Universitas Muhammadiyah Malang");
     }
-
 }
