@@ -1,22 +1,56 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // Create Mahasiswa objects
-        Mahasiswa mhs1 = new Mahasiswa("John Doe", "12345678", "Universitas XYZ");
-        Mahasiswa mhs2 = new Mahasiswa("Jane Doe", "87654321", "Universitas XYZ");
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Mahasiswa> mahasiswaList = new ArrayList<Mahasiswa>();
+        int pilihan;
 
+        do {
+            System.out.println("\nMenu:");
+            System.out.println("1. Tambah Data Mahasiswa");
+            System.out.println("2. Tampilkan Data Mahasiswa");
+            System.out.println("3. Keluar");
+            System.out.print("Pilihan Anda: ");
+            pilihan = scanner.nextInt();
 
-        Mahasiswa.tampilUniversitas();
-
-        // Print Mahasiswa data
-        System.out.println("Nama: " + mhs1.getNama());
-        System.out.println("NIM: " + mhs1.getNim());
-        System.out.println("Universitas: " + mhs1.getUniversitas());
-
-        System.out.println("\nNama: " + mhs2.getNama());
-        System.out.println("NIM: " + mhs2.getNim());
-        System.out.println("Universitas: " + mhs2.getUniversitas());
-    }
-
-
-
+            switch (pilihan) {
+                case 1:
+                    System.out.print("Masukkan nama mahasiswa: ");
+                    scanner.nextLine();
+                    String nama = scanner.nextLine();
+                    System.out.print("Masukkan NIM mahasiswa: ");
+                    String nim;
+                    do {
+                        nim = scanner.next();
+                        if (nim.length() != 15) {
+                            System.out.print("Nim Harus 15 Digit!!! Masukkan NIM mahasiswa: ");
+                        }
+                    } while (nim.length() != 15);
+                    System.out.print("Masukkan jurusan mahasiswa: ");
+                    scanner.nextLine();
+                    String jurusan = scanner.nextLine();
+                    Mahasiswa mahasiswa = new Mahasiswa(nama, nim, jurusan);
+                    mahasiswaList.add(mahasiswa);
+                    System.out.println("Data mahasiswa berhasil ditambahkan.");
+                    break;
+                case 2:
+                    System.out.println("Data Mahasiswa:");
+                    Mahasiswa.tampilUniversitas();
+                    System.out.println("No.\tNama\t\tNIM\tJurusan");
+                    System.out.println("----------------------------------------------------");
+                    for (int i = 0; i < mahasiswaList.size(); i++) {
+                        System.out.printf("%d\t%s\t%s\t%s\n", i + 1,
+                                mahasiswaList.get(i).getNama(), mahasiswaList.get(i).getNim(), mahasiswaList.get(i).getJurusan());
+                    }
+                    break;
+                case 3:
+                    System.out.println("Terima kasih telah menggunakan program ini.");
+                    break;
+                default:
+                    System.out.println("Pilihan tidak valid.");
+            }
+        } while (pilihan != 3)
+                     }
 }
